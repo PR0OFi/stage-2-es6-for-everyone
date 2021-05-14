@@ -1,3 +1,17 @@
+import {showModal} from './modal';
+import {createFighterImage} from '../fighterPreview';
+
 export function showWinnerModal(fighter) {
-  // call showModal function 
+  const fighterImage = createFighterImage(fighter);
+
+  const onClose = () => {
+    location.reload()
+  }
+
+  const showModalArgument = {
+    title: fighter.name,
+    bodyElement: fighterImage,
+    onClose
+  };
+  showModal(showModalArgument);
 }
